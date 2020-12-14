@@ -22,7 +22,7 @@ class TickerApp extends StatelessWidget{
             BlocProvider(create: (_)=>ProductosBloc( productosRepository: ProductosRepository())),
           ],
           child: MaterialApp(
-            theme: ThemeData(primaryColor: Colors.lightBlue),
+            theme: ThemeData(primaryColor: Colors.amberAccent),
             home: TickerPage(),
           ));
   }

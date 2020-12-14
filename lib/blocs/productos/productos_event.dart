@@ -4,7 +4,7 @@ part of 'productos_bloc.dart';
 
 abstract class ProductosEvent{
   final ModeloProductos producto;
-const ProductosEvent({this.producto});
+  const ProductosEvent({this.producto});
 }
 
 class ListarProductosEvent extends ProductosEvent{ ListarProductosEvent(); }

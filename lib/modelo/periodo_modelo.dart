@@ -5,7 +5,7 @@ class ModeloPeriodo{
   String periodo;
   String estadoPe;
 
-  ModeloPeriodo(this.idPeriodo, this.periodo, this.estadoPe);
+  ModeloPeriodo({this.idPeriodo, this.periodo, this.estadoPe});
 
   Map<String, dynamic> toJson(){
     final  Map<String, dynamic> data= new Map<String, dynamic>();
