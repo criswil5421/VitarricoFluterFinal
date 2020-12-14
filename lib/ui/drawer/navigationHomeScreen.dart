@@ -23,6 +23,7 @@ class _NavigationHomeScreenState extends State<NavigationHomeScreen> {
   void initState() {
     //drawerIndex = DrawerIndex.Help;
     //screenView = HelpScreen();
+
     super.initState();
   }
 
@@ -34,8 +35,11 @@ class _NavigationHomeScreenState extends State<NavigationHomeScreen> {
         top: false,
         bottom: false,
         child: Scaffold(
+
+
           backgroundColor: AppTheme.nearlyWhite,
           body: DrawerUserController(
+
             screenIndex: drawerIndex,
             drawerWidth: MediaQuery.of(context).size.width * 0.75,
             animationController: (AnimationController animationController) {

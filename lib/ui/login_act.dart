@@ -37,201 +37,247 @@ class _LoginActivityState extends State<LoginActivity>{
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        padding: EdgeInsets.all(16.0),
-        child: Container(
-          child: Center(
-            child: new Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Container(
-                    padding:
-                        EdgeInsets.only(left: 16.0, right: 16.0, top: 60.0),
-                    child: Column(
+    return Container(
+      decoration: BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage('assets/proyecto/fondo.jpeg'),
+              //repeat: ImageRepeat.repeat
+              fit: BoxFit.cover
+          )
+      ),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: Container(
+          child: SingleChildScrollView(
+
+            padding: EdgeInsets.all(16.0),
+            child: Container(
+              child: Center(
+                child: new Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Container(
+                        padding:
+                            EdgeInsets.only(left: 16.0, right: 16.0, top: 40.0),
+
+                        child: Image.asset(
+                          'assets/proyecto/logo.jpg',
+                          fit: BoxFit.cover,
+                        ),
+                        /*child: Column(
+                          children: <Widget>[
+                            Text("Vitarrico",
+                                style: TextStyle(
+                                    color: Colors.greenAccent,
+                                    fontSize: 28.0,
+                                    fontWeight: FontWeight.w600))
+                          ],
+                        )*/
+                    ),
+                    new Container(
+                      child: Text(
+                        "INICIAR SESION",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                          fontSize: 19.0,
+                        ),
+                      ),
+                    ),
+                    /*new Row(
                       children: <Widget>[
-                        Text("Vitarrico",
-                            style: TextStyle(
-                                color: Colors.redAccent,
-                                fontSize: 28.0,
-                                fontWeight: FontWeight.w600))
+                        Expanded(
+                          child: new Padding(
+                            padding: const EdgeInsets.only(left: 16.0, top: 30.0),
+                            child: Text(
+                              "Usuario:",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.blue,
+                                fontSize: 15.0,
+                              ),
+                            ),
+                          ),
+                        ),
                       ],
-                    )),
-                new Row(
-                  children: <Widget>[
-                    Expanded(
-                      child: new Padding(
-                        padding: const EdgeInsets.only(left: 16.0, top: 30.0),
-                        child: Text(
-                          "Usuario:",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.blue,
-                            fontSize: 15.0,
-                          ),
+                    ),*/
+                    new Container(
+                      width: MediaQuery.of(context).size.width,
+                      margin:
+                          const EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0),
+                      alignment: Alignment.center,
+                      /*decoration: BoxDecoration(
+                        border: Border(
+                          bottom: BorderSide(
+                              color: Colors.redAccent,
+                              width: 0.5,
+                              style: BorderStyle.solid),
                         ),
+                      ),*/
+                      padding: const EdgeInsets.only(left: 0.0, right: 10.0),
+                      child: new Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          new Expanded(
+                            child: TextField(
+                              controller: emailController,
+                              obscureText: false,
+                              textAlign: TextAlign.left,
+                              decoration: InputDecoration(
+
+
+                                border: InputBorder.none,
+                                fillColor: Colors.white,
+                                filled: true,
+
+
+                                icon: Icon(Icons.account_circle),
+
+                                hintText: 'Nombre De Usuario',
+                                hintStyle: TextStyle(color: Colors.black),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
+                    Divider(
+                      height: 24.0,
+                    ),
+                    /*new Row(
+                      children: <Widget>[
+                        new Expanded(
+                          child: new Padding(
+                            padding: const EdgeInsets.only(left: 16.0),
+                            child: new Text(
+                              "contraseña:",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.blue,
+                                fontSize: 15.0,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),*/
+                    new Container(
+                      width: MediaQuery.of(context).size.width,
+                      margin:
+                          const EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0),
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        border: Border(
+                          bottom: BorderSide(
+                              color: Colors.redAccent,
+                              width: 0.5,
+                              style: BorderStyle.solid),
+                        ),
+                      ),
+                      padding: const EdgeInsets.only(left: 0.0, right: 10.0),
+                      child: new Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          new Expanded(
+                            child: TextField(
+
+
+
+                              controller: passwordController,
+                              obscureText: true,
+                              textAlign: TextAlign.left,
+                              decoration: InputDecoration(
+
+
+                                border: InputBorder.none,
+                                fillColor: Colors.white,
+                                filled: true,
+
+                                icon: Icon(Icons.work_off_outlined),
+                                hintText: 'Contraseña',
+                                hintStyle: TextStyle(color: Colors.black),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Divider(
+                      height: 24.0,
+                    ),
+                    MaterialButton(
+                      color: Colors.blue,
+                      textColor: Colors.white,
+                      /*onPressed: () {
+                        doLogin(emailController.text.trim(),
+                            passwordController.text.trim());
+                      },*/
+
+                      onPressed: () async{
+                        var token="Token";
+
+                        final prefs= await SharedPreferences.getInstance();
+
+
+                        final api=Provider.of<ProductosApi>(context, listen: false);
+                        final usuario=new ModeloUsuario();
+                        usuario.nombreUsuario=emailController.text.trim();
+                        usuario.password=passwordController.text.trim();
+
+                        if (usuario.password.length < 5) {
+                          toast("La contraseña contiene al menos 8 caracteres.");
+                        }else{
+                          api.login(usuario).then((value) {
+                            print("Probando!!!......"+value.nombreUsuario);
+                            token=value.bearer+" "+value.token;
+                            prefs.setString("token", token);
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => NavigationHomeScreen()));
+
+                          }).catchError((onError){
+                            print(onError.toString());
+                          });
+                        }
+                      },
+                      child: Text("Ingresar"),
+                    ),
+                    MaterialButton(
+                      color: Colors.orange,
+                      textColor: Colors.white,
+                      onPressed: () async{
+                        var token="Token";
+
+                        final prefs= await SharedPreferences.getInstance();
+
+
+                        final api=Provider.of<ProductosApi>(context, listen: false);
+                        final usuario=new ModeloUsuario();
+                        usuario.nombreUsuario="admin";
+                        usuario.password="admin";
+                        api.login(usuario).then((value) {
+                          print("Probando!!!......"+value.nombreUsuario);
+                          token=value.bearer+" "+value.token;
+                          prefs.setString("token", token);
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => NavigationHomeScreen()));
+
+                        }).catchError((onError){
+                          print(onError.toString());
+                        });
+
+                      },
+                      child: Text("Home"),
+                    )
                   ],
                 ),
-                new Container(
-                  width: MediaQuery.of(context).size.width,
-                  margin:
-                      const EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0),
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    border: Border(
-                      bottom: BorderSide(
-                          color: Colors.redAccent,
-                          width: 0.5,
-                          style: BorderStyle.solid),
-                    ),
-                  ),
-                  padding: const EdgeInsets.only(left: 0.0, right: 10.0),
-                  child: new Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: <Widget>[
-                      new Expanded(
-                        child: TextField(
-                          controller: emailController,
-                          obscureText: false,
-                          textAlign: TextAlign.left,
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                            hintText: 'yudhanewbie@gmail.com',
-                            hintStyle: TextStyle(color: Colors.grey),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Divider(
-                  height: 24.0,
-                ),
-                new Row(
-                  children: <Widget>[
-                    new Expanded(
-                      child: new Padding(
-                        padding: const EdgeInsets.only(left: 16.0),
-                        child: new Text(
-                          "Clave:",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.blue,
-                            fontSize: 15.0,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                new Container(
-                  width: MediaQuery.of(context).size.width,
-                  margin:
-                      const EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0),
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    border: Border(
-                      bottom: BorderSide(
-                          color: Colors.redAccent,
-                          width: 0.5,
-                          style: BorderStyle.solid),
-                    ),
-                  ),
-                  padding: const EdgeInsets.only(left: 0.0, right: 10.0),
-                  child: new Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: <Widget>[
-                      new Expanded(
-                        child: TextField(
-                          controller: passwordController,
-                          obscureText: true,
-                          textAlign: TextAlign.left,
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                            hintText: '*********',
-                            hintStyle: TextStyle(color: Colors.grey),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Divider(
-                  height: 24.0,
-                ),
-                MaterialButton(
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  /*onPressed: () {
-                    doLogin(emailController.text.trim(),
-                        passwordController.text.trim());
-                  },*/
-
-                  onPressed: () async{
-                    var token="Token";
-
-                    final prefs= await SharedPreferences.getInstance();
-
-
-                    final api=Provider.of<ProductosApi>(context, listen: false);
-                    final usuario=new ModeloUsuario();
-                    usuario.nombreUsuario=emailController.text.trim();
-                    usuario.password=passwordController.text.trim();
-
-                    if (usuario.password.length < 5) {
-                      toast("La contraseña contiene al menos 8 caracteres.");
-                    }else{
-                      api.login(usuario).then((value) {
-                        print("Probando!!!......"+value.nombreUsuario);
-                        token=value.bearer+" "+value.token;
-                        prefs.setString("token", token);
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => NavigationHomeScreen()));
-
-                      }).catchError((onError){
-                        print(onError.toString());
-                      });
-                    }
-                  },
-                  child: Text("Ingresar"),
-                ),
-                MaterialButton(
-                  color: Colors.orange,
-                  textColor: Colors.white,
-                  onPressed: () async{
-                    var token="Token";
-
-                    final prefs= await SharedPreferences.getInstance();
-
-
-                    final api=Provider.of<ProductosApi>(context, listen: false);
-                    final usuario=new ModeloUsuario();
-                    usuario.nombreUsuario="admin";
-                    usuario.password="123456";
-                    api.login(usuario).then((value) {
-                      print("Probando!!!......"+value.nombreUsuario);
-                      token=value.bearer+" "+value.token;
-                      prefs.setString("token", token);
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => NavigationHomeScreen()));
-
-                    }).catchError((onError){
-                      print(onError.toString());
-                    });
-
-                  },
-                  child: Text("Home"),
-                )
-              ],
+              ),
             ),
           ),
         ),
