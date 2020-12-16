@@ -62,7 +62,7 @@ class _LoginActivityState extends State<LoginActivity>{
                             EdgeInsets.only(left: 16.0, right: 16.0, top: 40.0),
 
                         child: Image.asset(
-                          'assets/proyecto/logo.jpg',
+                          'assets/proyecto/logo.png',
                           fit: BoxFit.cover,
                         ),
                         /*child: Column(
