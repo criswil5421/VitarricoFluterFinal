@@ -10,7 +10,7 @@ class materiaprimas extends StatelessWidget{
     return MaterialApp(
 
       theme: ThemeData(primaryColor: Colors.lightBlue),
-      home: Center(child: materia()),
+      home: Container(child: materia()),
     );
   }
 }
@@ -23,7 +23,18 @@ class materia extends StatelessWidget{
           title: Center(child: Text("materias primaas"),),
         ),
       body: Center(
-        child: Text('hola'),
+
+        child: SafeArea(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.max,
+            children: <Widget>[
+              Icon(Icons.account_circle),
+              Text('hola'),
+              //Icon(Icons.work_off),
+            ],
+          ),
+        ),
       )
     );
   }

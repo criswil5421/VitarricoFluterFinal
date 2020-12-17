@@ -59,10 +59,11 @@ class _LoginActivityState extends State<LoginActivity>{
                   children: <Widget>[
                     Container(
                         padding:
-                            EdgeInsets.only(left: 16.0, right: 16.0, top: 40.0),
+                            EdgeInsets.only(left: 16.0, right: 16.0, top: 5.0),
 
                         child: Image.asset(
                           'assets/proyecto/logo.png',
+                          width: 250,
                           fit: BoxFit.cover,
                         ),
                         /*child: Column(

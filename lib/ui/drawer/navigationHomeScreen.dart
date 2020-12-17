@@ -24,7 +24,7 @@ class _NavigationHomeScreenState extends State<NavigationHomeScreen> {
   @override
   void initState() {
     //drawerIndex = DrawerIndex.Help;
-    //screenView = HelpScreen();
+    screenView = inicio();
 
     super.initState();
   }
