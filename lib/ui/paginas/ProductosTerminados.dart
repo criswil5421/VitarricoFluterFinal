@@ -1,3 +1,5 @@
+import 'package:calidad_servicioupeu/ui/paginas/productos%20terminados/SalidaProductos.dart';
+import 'package:calidad_servicioupeu/ui/paginas/productos%20terminados/productostermi.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -11,6 +13,10 @@ class productosterminados extends StatelessWidget{
 
       theme: ThemeData(primaryColor: Colors.lightBlue),
       home: Center(child: productos()),
+      routes: {
+        '/almacenproductos': (context) => SalidaProductos(),
+        '/productostermi': (context) => productostermi(),
+      },
     );
   }
 }
@@ -94,14 +100,18 @@ class productos extends StatelessWidget{
 
                     child: RaisedButton(
 
+
                       shape: new RoundedRectangleBorder(
                         borderRadius: new BorderRadius.circular(25.0),
                       ),
 
                       child: Text('granola'),
-                      /*onPressed: (){
-                          Navigator.of(context).pushNamed('/materia');
-                        }*/
+
+                      onPressed: (){
+
+                          Navigator.of(context).pushNamed('/productostermi', arguments: {'myData': 'gloria'});
+
+                        }
                     ),
                   ),
                   new Container(
@@ -128,9 +138,9 @@ class productos extends StatelessWidget{
                       ),
 
                       child: Text('Cereal'),
-                      /*onPressed: (){
-                          Navigator.of(context).pushNamed('/materia');
-                        }*/
+                      onPressed: (){
+                        Navigator.of(context).pushNamed('/productostermi', arguments: {'myData': 'Lucho'});
+                        }
                     ),
                   ),
                   new Container(
@@ -196,9 +206,9 @@ class productos extends StatelessWidget{
                       ),
 
                       child: Text('Salida de Producto'),
-                      /*onPressed: (){
-                          Navigator.of(context).pushNamed('/materia');
-                        }*/
+                      onPressed: (){
+                          Navigator.of(context).pushNamed('/almacenproductos');
+                        }
                     ),
                   ),
                   new Container(

@@ -235,6 +235,7 @@ class _LoginActivityState extends State<LoginActivity>{
                             print("Probando!!!......"+value.nombreUsuario);
                             token=value.bearer+" "+value.token;
                             prefs.setString("token", token);
+                            prefs.setString("usuario", value.nombreUsuario);
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(

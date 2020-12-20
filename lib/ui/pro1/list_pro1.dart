@@ -11,9 +11,13 @@ class ListaPro1 extends StatelessWidget{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+
         title: Center(child: Text("Lista producto1"),),
+
       ),
+
       body: _listFuturePro1(context),
+
       floatingActionButton: FloatingActionButton(
         onPressed: () async{
           var token="Token";

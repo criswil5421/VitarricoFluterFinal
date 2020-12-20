@@ -1,4 +1,5 @@
 
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -11,6 +12,8 @@ class materiaprimas extends StatelessWidget{
 
       theme: ThemeData(primaryColor: Colors.lightBlue),
       home: Container(child: materia()),
+
+
     );
   }
 }
@@ -201,8 +204,9 @@ class materia extends StatelessWidget{
                       ),
 
                       child: Text('Salida de Producto'),
+
                       /*onPressed: (){
-                          Navigator.of(context).pushNamed('/materia');
+                          Navigator.of(context).pushNamed('/almacenproductos');
                         }*/
                     ),
                   ),

@@ -13,7 +13,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 part 'api_pro1.g.dart';
 
-@RestApi(baseUrl: "http://192.168.100.4:8080")
+@RestApi(baseUrl: "http://60.60.60.36:8080")
 abstract class Pro1Api{
   factory Pro1Api(Dio dio, {String baseUrl})=_Pro1Api;
 

@@ -16,6 +16,11 @@ class ProveedorRepository{
   Future<List<ModeloProveedor>> getProveedor() async{
     return await proveedorApi.getProveedor();
   }
+
+  Future<List<ModeloProveedor>> getProveedorNombre(String proveedorNombre) async{
+    return await proveedorApi.getProveedorNombre(proveedorNombre);
+  }
+
   Future<ModeloMensaje> deleteProveedor(int idProveedor) async{
     return await proveedorApi.deleteProveedor(idProveedor);
   }

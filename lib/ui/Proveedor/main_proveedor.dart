@@ -14,7 +14,7 @@ class MainProveedor extends StatelessWidget{
         theme: ThemeData(
             primaryColor: Colors.lightBlue
         ),
-        home: ProveedorMain(),
+        //home: ProveedorMain(),
       ),
 
     );

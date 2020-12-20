@@ -33,7 +33,7 @@ class _HomeDrawerState extends State<HomeDrawer> {
 
   void getUser() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    usuario = (prefs.getString("nombre_user") ?? "undefined");
+    usuario = (prefs.getString("usuario") ?? "undefined");
     print("Nombre:" + usuario);
   }
 

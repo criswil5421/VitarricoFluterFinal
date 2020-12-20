@@ -1,9 +1,12 @@
+import 'package:calidad_servicioupeu/ui/Proveedor/main_proveedor.dart';
+import 'package:calidad_servicioupeu/ui/Proveedor/proveedor_main.dart';
 import 'package:calidad_servicioupeu/ui/drawer/Inicio.dart';
 import 'package:calidad_servicioupeu/ui/listaestado/view_streams.dart';
 import 'package:calidad_servicioupeu/ui/listaproducto/main_productos.dart';
 import 'package:calidad_servicioupeu/ui/listaperiodo/main_periodo.dart';
 import 'package:calidad_servicioupeu/ui/paginas/MateriasPrimas.dart';
 import 'package:calidad_servicioupeu/ui/paginas/ProductosTerminados.dart';
+import 'package:calidad_servicioupeu/ui/pro1/main_pro1.dart';
 import 'package:calidad_servicioupeu/ui/theme/appTheme.dart';
 import 'package:calidad_servicioupeu/ui/drawer/drawerUserController.dart';
 import 'package:calidad_servicioupeu/ui/drawer/homeDrawer.dart';
@@ -15,6 +18,7 @@ import 'package:flutter/material.dart';
 class NavigationHomeScreen extends StatefulWidget {
   @override
   _NavigationHomeScreenState createState() => _NavigationHomeScreenState();
+
 }
 
 class _NavigationHomeScreenState extends State<NavigationHomeScreen> {
@@ -41,6 +45,9 @@ class _NavigationHomeScreenState extends State<NavigationHomeScreen> {
 
 
           backgroundColor: AppTheme.nearlyWhite,
+
+
+
           body: DrawerUserController(
 
             screenIndex: drawerIndex,
@@ -64,7 +71,7 @@ class _NavigationHomeScreenState extends State<NavigationHomeScreen> {
       if (drawerIndex == DrawerIndex.HOME) {
         setState(() {
           screenView = inicio();
-          //screenView = RegisterActivity();
+          //screenView = MainPro1();
         });
       } else if (drawerIndex == DrawerIndex.Help) {
         setState(() {
@@ -76,7 +83,7 @@ class _NavigationHomeScreenState extends State<NavigationHomeScreen> {
         });
       } else if (drawerIndex == DrawerIndex.Invite) {
         setState(() {
-          screenView =   TickerPeriodoApp();                 //MainPeriodo();
+          screenView =   MainProveedor();                 //MainPeriodo();
         });
       } else {
         //do in your way......

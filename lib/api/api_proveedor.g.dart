@@ -3,7 +3,7 @@ part of 'api_proveedor.dart';
 class _ProveedorApi implements ProveedorApi{
   _ProveedorApi(this._dio, {this.baseUrl}){
     ArgumentError.checkNotNull(_dio, '_dio');
-    this.baseUrl ??="http://192.168.100.4:8080";
+    this.baseUrl ??="http://60.60.60.36:8080";
   }
 
   final Dio _dio;
@@ -27,7 +27,7 @@ class _ProveedorApi implements ProveedorApi{
             baseUrl:baseUrl
         ),
         data:_data);
-    var value=_result.data
+    var value =_result.data
         .map((dynamic i)=>ModeloProveedor.fromJson(i as Map<String, dynamic>)).toList();
 
 
@@ -95,6 +95,30 @@ class _ProveedorApi implements ProveedorApi{
             baseUrl: baseUrl),
         data: _data);
     final value = ModeloProveedor.fromJson(_result.data);
+    return Future.value(value);
+  }
+
+  @override
+  getProveedorNombre(proveedorNombre) async{
+    ArgumentError.checkNotNull(proveedorNombre, 'nombre');
+    final prefs= await SharedPreferences.getInstance();
+    var tokenx=prefs.getString("token");
+    print("VER: ${tokenx}");
+    ArgumentError.checkNotNull(tokenx, "token");
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final Response<List<dynamic>> _result = await _dio.request(
+        '/proveedor/detailname/$proveedorNombre',
+        queryParameters: queryParameters,
+        options: RequestOptions(
+            method: 'GET',
+            headers: <String, dynamic>{"Authorization":tokenx},
+            extra: _extra,
+            baseUrl: baseUrl),
+        data: _data);
+    var value = _result.data
+        .map((dynamic i)=>ModeloProveedor.fromJson(i as Map<String, dynamic>)).toList();
     return Future.value(value);
   }
 

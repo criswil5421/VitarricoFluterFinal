@@ -9,6 +9,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 
 class ProveedorMain extends StatelessWidget{
+
+  String argumemenu;
+  ProveedorMain(this.argumemenu);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,7 +52,7 @@ class ProveedorMain extends StatelessWidget{
 
   FutureBuilder _listFutureProveedor(BuildContext context){
     return FutureBuilder<List<ModeloProveedor>>(
-        future: Provider.of<ProveedorApi>(context, listen: false).getProveedor(),
+        future: Provider.of<ProveedorApi>(context, listen: false).getProveedorNombre(argumemenu),
         builder: (BuildContext context, AsyncSnapshot<List<ModeloProveedor>>  snapshot){
           if(snapshot.connectionState==ConnectionState.done){
             if(snapshot.hasError){

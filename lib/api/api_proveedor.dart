@@ -13,7 +13,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 part 'api_proveedor.g.dart';
 
-@RestApi(baseUrl: "http://192.168.100.4:8080")
+@RestApi(baseUrl: "http://60.60.60.36:8080")
 abstract class ProveedorApi{
   factory ProveedorApi(Dio dio, {String baseUrl})=_ProveedorApi;
 
@@ -23,7 +23,7 @@ abstract class ProveedorApi{
     return ProveedorApi(dio);
   }
 
-  @GET("/proveedor/lista2")
+  @GET("/proveedor/lista1")
   Future<List<ModeloProveedor>> getProveedor();
 
   @GET("/proveedor/lista2")
@@ -34,6 +34,9 @@ abstract class ProveedorApi{
 
   @GET("/proveedor/detail/{idProveedor}")
   Future<ModeloProveedor> getProveedorId(@Path("idProveedor") String idProveedor);
+
+  @GET("/proveedor/detailname/{nombre}")
+  Future<List<ModeloProveedor>> getProveedorNombre(@Path("nombre") String proveedorNombre);
 
   @DELETE("/proveedor/delete/{idProveedor}")
   Future<ModeloMensaje> deleteProveedor(@Path("idProveedor") int idProveedor);
