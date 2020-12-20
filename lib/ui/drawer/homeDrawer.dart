@@ -53,19 +53,19 @@ class _HomeDrawerState extends State<HomeDrawer> {
       ),
       DrawerList(
         index: DrawerIndex.Help,
-        labelName: 'Help',
+        labelName: 'Materia Prima',
         isAssetsImage: true,
         imageName: "assets/images/library-icon.png",
       ),
       DrawerList(
         index: DrawerIndex.FeedBack,
-        labelName: 'FeedBack',
-        icon: new Icon(Icons.help),
+        labelName: 'Productos terminados',
+        icon: new Icon(Icons.add_shopping_cart_sharp),
       ),
       DrawerList(
         index: DrawerIndex.Invite,
-        labelName: 'Invite Friend',
-        icon: new Icon(Icons.group),
+        labelName: 'Lista de pedidos',
+        icon: new Icon(Icons.article),
       ),
       DrawerList(
         index: DrawerIndex.Share,

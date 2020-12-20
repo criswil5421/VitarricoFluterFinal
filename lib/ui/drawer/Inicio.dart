@@ -34,17 +34,33 @@ class menu extends StatelessWidget{
 
                 Container(
                   padding:
-                  EdgeInsets.only(left: 16.0, right: 16.0, top: 5.0),
+                  EdgeInsets.only(left: 16.0, right: 16.0, top: 10.0),
 
                   child: Image.asset(
                     'assets/proyecto/materiaprima.jpg',
                     width: 300,
+                    height: 200,
                     fit: BoxFit.cover,
                   ),
                 ),
 
                 new Container(
+
+                  padding:
+                  EdgeInsets.only(top: 6.0),
+
+                  width: 180,
+                  height: 40,
+
                   child: RaisedButton(
+
+                      shape: new RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(25.0),
+                      ),
+                      color: Colors.red,
+                      textColor: Colors.yellow,
+                      splashColor: Colors.grey,
+
                       child: Text('materias primas'),
                       onPressed: (){
                         Navigator.of(context).pushNamed('/materia');
@@ -54,19 +70,34 @@ class menu extends StatelessWidget{
 
                 Container(
                   padding:
-                  EdgeInsets.only(left: 16.0, right: 16.0, top: 5.0),
+                  EdgeInsets.only(left: 16.0, right: 16.0, top: 10.0),
 
                   child: Image.asset(
                     'assets/proyecto/productoterminado.jpg',
                     width: 300,
+                    height: 200,
                     fit: BoxFit.cover,
                   ),
                 ),
 
                 new Container(
 
+                  padding:
+                  EdgeInsets.only(top: 6.0),
+
+                  width: 180,
+                  height: 40,
 
                   child: RaisedButton(
+
+                      shape: new RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(25.0),
+                      ),
+
+                      color: Colors.red,
+                      textColor: Colors.yellow,
+                      splashColor: Colors.grey,
+
                       child: Text('productos terminados'),
                       onPressed: (){
                         Navigator.of(context).pushNamed('/producto');

@@ -24,6 +24,9 @@ class materia extends StatelessWidget{
         ),
       body: Container(
 
+        padding:
+        EdgeInsets.only(left: 16.0, right: 16.0),
+
         child: SafeArea(
           child: Row(
 
@@ -45,14 +48,32 @@ class materia extends StatelessWidget{
 
 
                   new Container(
+
+                    margin:
+                    EdgeInsets.only(top: 6.0),
+
                     child: Image.asset(
                       'assets/proyecto/carrito.jpg',
                       width: 100,
+                      height: 100,
                       fit: BoxFit.cover,
                     ),
                   ),
                   new Container(
+
+                    width: 160,
+                    height: 37,
+
                     child: RaisedButton(
+
+                      shape: new RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(25.0),
+                      ),
+
+                      color: Colors.red,
+                      textColor: Colors.yellow,
+                      splashColor: Colors.grey,
+
                         child: Text('Realizar Pedido'),
                         /*onPressed: (){
                           Navigator.of(context).pushNamed('/materia');
@@ -60,14 +81,28 @@ class materia extends StatelessWidget{
                     ),
                   ),
                   new Container(
+
+                    margin:
+                    EdgeInsets.only(top: 6.0),
+
                     child: Image.asset(
                       'assets/proyecto/harina.png',
-                      width: 125,
+                      width: 100,
+                      height: 100,
                       fit: BoxFit.cover,
                     ),
                   ),
                   new Container(
+
+                    width: 135,
+                    height: 37,
+
                     child: RaisedButton(
+
+                      shape: new RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(25.0),
+                      ),
+
                       child: Text('Harina'),
                       /*onPressed: (){
                           Navigator.of(context).pushNamed('/materia');
@@ -75,14 +110,28 @@ class materia extends StatelessWidget{
                     ),
                   ),
                   new Container(
+
+                    margin:
+                    EdgeInsets.only(top: 6.0),
+
                     child: Image.asset(
                       'assets/proyecto/leche.jpg',
-                      width: 125,
+                      width: 100,
+                      height: 100,
                       fit: BoxFit.cover,
                     ),
                   ),
                   new Container(
+
+                    width: 135,
+                    height: 37,
+
                     child: RaisedButton(
+
+                      shape: new RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(25.0),
+                      ),
+
                       child: Text('Leche'),
                       /*onPressed: (){
                           Navigator.of(context).pushNamed('/materia');
@@ -90,14 +139,28 @@ class materia extends StatelessWidget{
                     ),
                   ),
                   new Container(
+
+                    margin:
+                    EdgeInsets.only(top: 6.0),
+
                     child: Image.asset(
                       'assets/proyecto/vainilla.jpg',
-                      width: 110,
+                      width: 100,
+                      height: 100,
                       fit: BoxFit.cover,
                     ),
                   ),
                   new Container(
+
+                    width: 135,
+                    height: 37,
+
                     child: RaisedButton(
+
+                      shape: new RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(25.0),
+                      ),
+
                       child: Text('Vainilla'),
                       /*onPressed: (){
                           Navigator.of(context).pushNamed('/materia');
@@ -115,14 +178,28 @@ class materia extends StatelessWidget{
 
                 children: [
                   new Container(
+
+                    margin:
+                    EdgeInsets.only(top: 6.0),
+
                     child: Image.asset(
-                      'assets/proyecto/productoterminado.jpg',
-                      width: 110,
+                      'assets/proyecto/productosalida.png',
+                      width: 100,
+                      height: 100,
                       fit: BoxFit.cover,
                     ),
                   ),
                   new Container(
+
+                    width: 160,
+                    height: 37,
+
                     child: RaisedButton(
+
+                      shape: new RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(25.0),
+                      ),
+
                       child: Text('Salida de Producto'),
                       /*onPressed: (){
                           Navigator.of(context).pushNamed('/materia');
@@ -130,14 +207,28 @@ class materia extends StatelessWidget{
                     ),
                   ),
                   new Container(
+
+                    margin:
+                    EdgeInsets.only(top: 6.0),
+
                     child: Image.asset(
                       'assets/proyecto/aceite.jpg',
-                      width: 140,
+                      width: 100,
+                      height: 100,
                       fit: BoxFit.cover,
                     ),
                   ),
                   new Container(
+
+                    width: 135,
+                    height: 37,
+
                     child: RaisedButton(
+
+                      shape: new RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(25.0),
+                      ),
+
                       child: Text('Aceite'),
                       /*onPressed: (){
                           Navigator.of(context).pushNamed('/materia');
@@ -145,14 +236,28 @@ class materia extends StatelessWidget{
                     ),
                   ),
                   new Container(
+
+                    margin:
+                    EdgeInsets.only(top: 6.0),
+
                     child: Image.asset(
                       'assets/proyecto/ecencia.jpg',
-                      width: 90,
+                      width: 100,
+                      height: 100,
                       fit: BoxFit.cover,
                     ),
                   ),
                   new Container(
+
+                    width: 135,
+                    height: 37,
+
                     child: RaisedButton(
+
+                      shape: new RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(25.0),
+                      ),
+
                       child: Text('Escencia'),
                       /*onPressed: (){
                           Navigator.of(context).pushNamed('/materia');
@@ -160,14 +265,28 @@ class materia extends StatelessWidget{
                     ),
                   ),
                   new Container(
+
+                    margin:
+                    EdgeInsets.only(top: 6.0),
+
                     child: Image.asset(
                       'assets/proyecto/azucar.jpg',
-                      width: 120,
+                      width: 100,
+                      height: 100,
                       fit: BoxFit.cover,
                     ),
                   ),
                   new Container(
+
+                    width: 135,
+                    height: 37,
+
                     child: RaisedButton(
+
+                      shape: new RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(25.0),
+                      ),
+
                       child: Text('Azucar'),
                       /*onPressed: (){
                           Navigator.of(context).pushNamed('/materia');
