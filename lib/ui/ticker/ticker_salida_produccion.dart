@@ -81,14 +81,14 @@ class TickerPage extends StatelessWidget{
                     child: Container(
                       padding: EdgeInsets.all(10.0),
                       child: ListTile(
-                        leading: Text(state.salidaproduccionList[index].salpro_id.toString()),
-                        title: Text(state.salidaproduccionList[index].salpro_fecha),
+                        leading: Text(state.salidaproduccionList[index].salproId.toString()),
+                        title: Text(state.salidaproduccionList[index].salproFecha),
                         trailing: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             IconButton(icon: Icon(Icons.edit), onPressed: (){
                               ModeloSalidaProduccion salidaproduccion=state.salidaproduccionList[index];
-                              controllersalpro_fecha.text=salidaproduccion.salpro_fecha;
+                              controllersalpro_fecha.text=salidaproduccion.salproFecha;
                               formDialog(context, salidaproduccion);
                             }),
                             IconButton(icon: Icon(Icons.delete), onPressed: (){
@@ -224,7 +224,7 @@ class TickerPage extends StatelessWidget{
                   }),
               FlatButton(child: Text('Guardar'),
                   onPressed: (){
-                    salidaproduccion.salpro_fecha=controllersalpro_fecha.value.text;
+                    salidaproduccion.salproFecha=controllersalpro_fecha.value.text;
                     controllersalpro_fecha.clear();
                     Navigator.of(context).pop(salidaproduccion);
                   })
@@ -234,9 +234,9 @@ class TickerPage extends StatelessWidget{
     ).then((value){
       if(value.toString()!="Cencel" && value.toString()!=null){
         ModeloSalidaProduccion data=value;
-        print("VER: ${data.salpro_id}" );
-        if(data.salpro_id==null){
-          print("Datos: ${data.salpro_fecha}");
+        print("VER: ${data.salproId}" );
+        if(data.salproId==null){
+          print("Datos: ${data.salproFecha}");
           BlocProvider.of<SalidaProduccionBloc>(context).add(CreateSalidaProduccionEvent(salidaproduccion: data));
         }else{
           BlocProvider.of<SalidaProduccionBloc>(context).add(UpdateSalidaProduccionEvent(salidaproduccion: data));
