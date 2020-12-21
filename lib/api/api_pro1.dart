@@ -29,6 +29,10 @@ abstract class Pro1Api{
   @GET("/pro1/lista2")
   Future<List<ModeloPro1>> getPro12(@Header("Authorization") String token);
 
+  @GET("/pro1/detailname/{nombre}")
+  Future<List<ModeloPro1>> getProductoNombre(@Path("nombre") String productoNombre);
+
+
   @POST("/auth/login")
   Future<ModeloUsuario> login(@Body() ModeloUsuario usuario);
 

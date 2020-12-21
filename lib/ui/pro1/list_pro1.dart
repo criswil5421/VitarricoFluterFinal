@@ -79,9 +79,8 @@ class ListaPro1 extends StatelessWidget{
             child: Container(
               padding: EdgeInsets.all(10.0),
               child: ListTile(
-                leading: Text(pro1[index].idPro1.toString()),
-                title: Text(pro1[index].producto_nombre),
-                subtitle: new Text('Nombre: ${pro1[index].producto_precio}'),
+                leading: Text(pro1[index].productoId.toString()),
+                title: Text(pro1[index].productoNombre),
               ),
             ),
           );

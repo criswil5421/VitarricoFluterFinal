@@ -1,36 +1,44 @@
+import 'package:calidad_servicioupeu/modelo/almacen_modelo.dart';
 
 class ModeloPro1{
+  int productoId;
+  String productoNombre;
+  double productoPrecio;
+  String productoIngreso ;
+  String productoCantidad;
+  String productoDescripcion;
+  ModeloAlmacen almacenId;
 
-  int idPro1;
-  String producto_cantidad;
-  String producto_descripcion;
-  String producto_ingreso ;
-  String producto_nombre;
-  double producto_precio;
-  int almacen_id;
-
-  ModeloPro1({this.idPro1, this.producto_cantidad, this.producto_descripcion, this.producto_ingreso, this.producto_nombre, this.producto_precio, this.almacen_id});
+  ModeloPro1({this.productoId,
+    this.productoNombre,
+    this.productoPrecio,
+    this.productoIngreso,
+    this.productoCantidad,
+    this.productoDescripcion,
+    this.almacenId});
 
   Map<String, dynamic> toJson(){
     final  Map<String, dynamic> data= new Map<String, dynamic>();
-    data['idPro1']=this.idPro1;
-    data['producto_cantidad']=this.producto_cantidad;
-    data['producto_descripcion']=this.producto_descripcion;
-    data['producto_ingreso']=this.producto_ingreso;
-    data['producto_nombre']=this.producto_nombre;
-    data['producto_precio']=this.producto_precio;
-    data['almacen_id']=this.almacen_id;
+
+    data['almacenId']=this.almacenId.toJson();
+    data['productoId']=this.productoId;
+    data['productoNombre']=this.productoNombre;
+    data['productoPrecio']=this.productoPrecio;
+    data['productoIngreso']=this.productoIngreso;
+    data['productoCantidad']=this.productoCantidad;
+    data['productoDescripcion']=this.productoDescripcion;
     return data;
   }
 
   ModeloPro1.fromJson(Map<String, dynamic> json){
-    idPro1=json['idPro1'];
-    producto_cantidad=json['producto_cantidad'];
-    producto_descripcion=json['producto_descripcion'];
-    producto_ingreso=json['producto_ingreso'];
-    producto_nombre=json['producto_nombre'];
-    producto_precio=json['producto_precio'];
-    almacen_id=json['almacen_id'];
+
+    almacenId=ModeloAlmacen.fromJson(json['almacenId']);
+    productoId=json['productoId'];
+    productoNombre=json['productoNombre'];
+    productoPrecio=json['productoPrecio'];
+    productoIngreso=json['productoIngreso'];
+    productoCantidad=json['productoCantidad'];
+    productoDescripcion=json['productoDescripcion'];
   }
 
 }

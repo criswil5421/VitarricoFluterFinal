@@ -18,6 +18,11 @@ class MateriaPrimaRepository{
     return await materiaprimaapi.getMateriaprima();
   }
 
+  Future<List<ModeloMateriaPrima>> getMateriaNombre(String materiaNombre) async{
+    return await materiaprimaapi.getMateriaNombre(materiaNombre);
+  }
+
+
   Future<ModeloMensaje> deleteMateriaprima(int materiaId) async{
     return await materiaprimaapi.deleteMateriaprima(materiaId);
   }

@@ -21,6 +21,9 @@ class Pro1Repository{
   Future<ModeloMensaje> deletePro1(int idPro1) async{
     return await pro1api.deletePro1(idPro1);
   }
+  Future<List<ModeloPro1>> getProductoNombre(String productoNombre) async{
+    return await pro1api.getProductoNombre(productoNombre);
+  }
 
   Future<ModeloMensaje> updatePro1(int idPeriodo, ModeloPro1 pro1) async{
     return await pro1api.updatePro1(idPeriodo, pro1);

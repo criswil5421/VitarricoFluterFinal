@@ -109,7 +109,7 @@ class productos extends StatelessWidget{
 
                       onPressed: (){
 
-                          Navigator.of(context).pushNamed('/productostermi', arguments: {'myData': 'gloria'});
+                          Navigator.of(context).pushNamed('/productostermi', arguments: {'myData': 'granola'});
 
                         }
                     ),
@@ -139,7 +139,7 @@ class productos extends StatelessWidget{
 
                       child: Text('Cereal'),
                       onPressed: (){
-                        Navigator.of(context).pushNamed('/productostermi', arguments: {'myData': 'Lucho'});
+                        Navigator.of(context).pushNamed('/productostermi', arguments: {'myData': 'Cereal'});
                         }
                     ),
                   ),
@@ -167,9 +167,9 @@ class productos extends StatelessWidget{
                       ),
 
                       child: Text('Arroz coco'),
-                      /*onPressed: (){
-                          Navigator.of(context).pushNamed('/materia');
-                        }*/
+                      onPressed: (){
+                        Navigator.of(context).pushNamed('/productostermi', arguments: {'myData': 'arroz coco'});
+                        }
                     ),
                   ),
                 ],
@@ -235,9 +235,9 @@ class productos extends StatelessWidget{
                       ),
 
                       child: Text('Vitavena'),
-                      /*onPressed: (){
-                          Navigator.of(context).pushNamed('/materia');
-                        }*/
+                      onPressed: (){
+                        Navigator.of(context).pushNamed('/productostermi', arguments: {'myData': 'vitavena'});
+                        }
                     ),
                   ),
                   new Container(
@@ -264,9 +264,9 @@ class productos extends StatelessWidget{
                       ),
 
                       child: Text('Salvado de Trigo'),
-                      /*onPressed: (){
-                          Navigator.of(context).pushNamed('/materia');
-                        }*/
+                      onPressed: (){
+                        Navigator.of(context).pushNamed('/productostermi', arguments: {'myData': 'Salvado de trigo'});
+                        }
                     ),
                   ),
                   new Container(
@@ -294,9 +294,9 @@ class productos extends StatelessWidget{
 
                       child: Text('Leche de soya'),
 
-                      /*onPressed: (){
-                          Navigator.of(context).pushNamed('/materia');
-                        }*/
+                      onPressed: (){
+                          Navigator.of(context).pushNamed('/productostermi', arguments: {'myData': 'Leche de soya'});
+                        }
                     ),
                   ),
                 ],

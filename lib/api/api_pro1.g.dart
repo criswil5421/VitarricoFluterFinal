@@ -99,6 +99,30 @@ class _Pro1Api implements Pro1Api{
     return Future.value(value);
   }
 
+  getProductoNombre(productoNombre) async{
+    ArgumentError.checkNotNull(productoNombre, 'nombre');
+    final prefs= await SharedPreferences.getInstance();
+    var tokenx=prefs.getString("token");
+    print("VER: ${tokenx}");
+    ArgumentError.checkNotNull(tokenx, "token");
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final Response<List<dynamic>> _result = await _dio.request(
+        '/pro1/detailname/$productoNombre',
+        queryParameters: queryParameters,
+        options: RequestOptions(
+            method: 'GET',
+            headers: <String, dynamic>{"Authorization":tokenx},
+            extra: _extra,
+            baseUrl: baseUrl),
+        data: _data);
+    var value = _result.data
+        .map((dynamic i)=>ModeloPro1.fromJson(i as Map<String, dynamic>)).toList();
+    return Future.value(value);
+  }
+
+
   @override
   deletePro1(id) async{
     ArgumentError.checkNotNull(id, '0');

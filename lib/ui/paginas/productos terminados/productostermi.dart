@@ -1,10 +1,12 @@
 
+import 'package:calidad_servicioupeu/api/api_pro1.dart';
 import 'package:calidad_servicioupeu/ui/Proveedor/main_proveedor.dart';
 import 'package:calidad_servicioupeu/api/api_proveedor.dart';
 import 'package:calidad_servicioupeu/ui/Proveedor/proveedor_main.dart';
 import 'package:calidad_servicioupeu/ui/paginas/MateriasPrimas.dart';
 import 'package:calidad_servicioupeu/ui/paginas/ProductosTerminados.dart';
 import 'package:calidad_servicioupeu/ui/pro1/list_pro1.dart';
+import 'package:calidad_servicioupeu/ui/pro1/lista_productos_nombre.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -52,13 +54,13 @@ class menu extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
 
-        return Provider<ProveedorApi>(
-            create: (context)=>ProveedorApi.create(),
+        return Provider<Pro1Api>(
+            create: (context)=>Pro1Api.create(),
             child: MaterialApp(
                 theme: ThemeData(
                 primaryColor: Colors.lightBlue
                 ),
-                home: ProveedorMain(argumemenu),
+                home: ListaProductoNombre(argumemenu),
             ),
 
         );

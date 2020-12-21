@@ -81,15 +81,15 @@ class TickerPage extends StatelessWidget{
                     child: Container(
                       padding: EdgeInsets.all(10.0),
                       child: ListTile(
-                        leading: Text(state.pro1List[index].idPro1.toString()),
-                        title: Text(state.pro1List[index].producto_cantidad),
+                        leading: Text(state.pro1List[index].productoId.toString()),
+                        title: Text(state.pro1List[index].productoCantidad),
                         trailing: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             IconButton(icon: Icon(Icons.edit), onPressed: (){
                               ModeloPro1 pro1=state.pro1List[index];
-                              controllerCantida.text=pro1.producto_cantidad;
-                              controllerPrecio.text=pro1.producto_precio.toString();
+                              controllerCantida.text=pro1.productoNombre;
+                              controllerPrecio.text=pro1.productoPrecio.toString();
                               formDialog(context, pro1);
                             }),
                             IconButton(icon: Icon(Icons.delete), onPressed: (){
@@ -233,8 +233,8 @@ class TickerPage extends StatelessWidget{
                   }),
               FlatButton(child: Text('Guardar'),
                   onPressed: (){
-                    pro1.producto_cantidad=controllerCantida.value.text;
-                    pro1.producto_precio=double.parse(controllerPrecio.value.text.toString());
+                    pro1.productoCantidad=controllerCantida.value.text;
+                    pro1.productoPrecio=double.parse(controllerPrecio.value.text.toString());
                     controllerCantida.clear();
                     controllerPrecio.clear();
                     Navigator.of(context).pop(pro1);
@@ -245,9 +245,9 @@ class TickerPage extends StatelessWidget{
     ).then((value){
       if(value.toString()!="Cencel" && value.toString()!=null){
         ModeloPro1 data=value;
-        print("VER: ${data.idPro1}" );
-        if(data.idPro1==null){
-          print("Datos: ${data.producto_cantidad}-${data.producto_precio}");
+        print("VER: ${data.productoId}" );
+        if(data.productoId==null){
+          print("Datos: ${data.productoCantidad}-${data.productoPrecio}");
           BlocProvider.of<Pro1Bloc>(context).add(CreatePro1Event(pro1: data));
         }else{
           BlocProvider.of<Pro1Bloc>(context).add(UpdatePro1Event(pro1: data));
