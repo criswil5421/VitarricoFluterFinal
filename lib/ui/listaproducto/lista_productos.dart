@@ -80,8 +80,8 @@ class ListaProducto extends StatelessWidget{
             child: Container(
               padding: EdgeInsets.all(10.0),
               child: ListTile(
-                leading: Text(productos[index].id.toString()),
-                title: Text(productos[index].nombre),
+                leading: Text(productos[index].productoId.toString()),
+                title: Text(productos[index].productoNombre),
               ),
             ),
           );

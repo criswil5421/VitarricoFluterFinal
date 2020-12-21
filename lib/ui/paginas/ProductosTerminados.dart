@@ -1,5 +1,6 @@
 import 'package:calidad_servicioupeu/ui/paginas/productos%20terminados/SalidaProductos.dart';
 import 'package:calidad_servicioupeu/ui/paginas/productos%20terminados/productostermi.dart';
+import 'package:calidad_servicioupeu/ui/ticker/ticker_main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -16,6 +17,7 @@ class productosterminados extends StatelessWidget{
       routes: {
         '/almacenproductos': (context) => SalidaProductos(),
         '/productostermi': (context) => productostermi(),
+        '/TickerApp': (context) => TickerApp(),
       },
     );
   }
@@ -76,9 +78,9 @@ class productos extends StatelessWidget{
                       ),
 
                       child: Text('Agregar Productos'),
-                      /*onPressed: (){
-                          Navigator.of(context).pushNamed('/materia');
-                        }*/
+                      onPressed: (){
+                          Navigator.of(context).pushNamed('/TickerApp');
+                        }
                     ),
                   ),
                   new Container(

@@ -84,9 +84,11 @@ class ListaMateriaPrimaNombre extends StatelessWidget{
             child: Container(
               padding: EdgeInsets.all(10.0),
               child: ListTile(
+
                 leading: Text(materia[index].materiaId.toString()),
                 title: Text(materia[index].materiaNombre),
-
+                subtitle: Text(materia[index].materiaIngreso),
+                trailing: Text(materia[index].materiaCantidad),
 
               ),
             ),

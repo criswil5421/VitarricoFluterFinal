@@ -1,25 +1,43 @@
-
 class ModeloProductos{
-  int id;
-  String nombre;
-  double precio;
+  int productoId;
+  String productoNombre;
+  double productoPrecio;
+  String productoIngreso;
+  String productoCantidad;
+  String productoDescripcion;
+  int almacenId;
+
 
   ModeloProductos({
-    this.id, this.nombre, this.precio
+    this.productoId,
+    this.productoNombre,
+    this.productoPrecio,
+    this.productoIngreso,
+    this.productoCantidad,
+    this.productoDescripcion,
+    this.almacenId
   });
 
   Map<String, dynamic> toJson(){
     final Map<String, dynamic> data=new Map<String, dynamic>();
-    data['id']=this.id;
-    data['nombre']=this.nombre;
-    data['precio']=this.precio;
+    data['productoId']=this.productoId;
+    data['productoNombre']=this.productoNombre;
+    data['productoPrecio']=this.productoPrecio;
+    data['productoIngreso']=this.productoIngreso;
+    data['productoCantidad']=this.productoCantidad;
+    data['productoDescripcion']=this.productoDescripcion;
+    data['almacenId']=this.almacenId;
     return data;
   }
 
   ModeloProductos.fromJson(Map<String, dynamic> json){
-    id=json['id'];
-    nombre=json['nombre'];
-    precio=json['precio'];
+    productoId=json['productoId'];
+    productoNombre=json['productoNombre'];
+    productoPrecio=json['productoPrecio'];
+    productoIngreso=json['productoIngreso'];
+    productoCantidad=json['productoCantidad'];
+    productoDescripcion=json['productoDescripcion'];
+    almacenId=json['almacenId'];
   }
 
 }

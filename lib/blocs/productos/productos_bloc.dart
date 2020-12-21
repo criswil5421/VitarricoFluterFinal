@@ -33,7 +33,7 @@ class ProductosBloc extends Bloc<ProductosEvent, ProductosState>{
       }
     }else if(event is DeleteProductoEvent){
       try{
-        await _productosRepository.deleteProducto(event.producto.id);
+        await _productosRepository.deleteProducto(event.producto.productoId);
         yield ProductosLoadingState();
         List<ModeloProductos> productosList= await _productosRepository.getProductos();
         yield ProductosLoadedState(productosList);
@@ -53,7 +53,7 @@ class ProductosBloc extends Bloc<ProductosEvent, ProductosState>{
       }
     }else if(event is UpdateProductoEvent){
       try{
-        await _productosRepository.updateProducto(event.producto.id, event.producto);
+        await _productosRepository.updateProducto(event.producto.productoId, event.producto);
         yield ProductosLoadingState();
         List<ModeloProductos> productosList= await _productosRepository.getProductos();
         yield ProductosLoadedState(productosList);

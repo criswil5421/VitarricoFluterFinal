@@ -4,7 +4,7 @@ part of 'api_detalleproduccion.dart';
 class _DetalleproduccionApi implements DetalleproduccionApi{
   _DetalleproduccionApi(this._dio, {this.baseUrl}){
     ArgumentError.checkNotNull(_dio, '_dio');
-    this.baseUrl ??="http://192.168.2.234:8080/detalleproduccion";
+    this.baseUrl ??="http://ec2-3-236-149-242.compute-1.amazonaws.com:8080/CalidadServApi-0.0.1-SNAPSHOT/detalleproduccion";
   }
 
   final Dio _dio;

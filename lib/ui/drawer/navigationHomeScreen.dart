@@ -7,6 +7,7 @@ import 'package:calidad_servicioupeu/ui/listaproducto/main_productos.dart';
 import 'package:calidad_servicioupeu/ui/listaperiodo/main_periodo.dart';
 import 'package:calidad_servicioupeu/ui/paginas/MateriasPrimas.dart';
 import 'package:calidad_servicioupeu/ui/paginas/ProductosTerminados.dart';
+import 'package:calidad_servicioupeu/ui/paginas/ScanQR.dart';
 import 'package:calidad_servicioupeu/ui/pro1/main_pro1.dart';
 import 'package:calidad_servicioupeu/ui/theme/appTheme.dart';
 import 'package:calidad_servicioupeu/ui/drawer/drawerUserController.dart';
@@ -84,7 +85,7 @@ class _NavigationHomeScreenState extends State<NavigationHomeScreen> {
         });
       } else if (drawerIndex == DrawerIndex.Invite) {
         setState(() {
-          screenView =   MainPro1();                 //MainPeriodo();
+          screenView =   Scan();                 //MainPeriodo();
         });
       } else {
         //do in your way......

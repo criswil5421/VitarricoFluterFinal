@@ -4,7 +4,7 @@ part of 'api_materiaprima.dart';
 class _MateriaprimaApi implements MateriaprimaApi{
   _MateriaprimaApi(this._dio,{this.baseUrl}){
     ArgumentError.checkNotNull(_dio, "_dio");
-    this.baseUrl ??="http://60.60.60.36:8080/materiaprima";
+    this.baseUrl ??="http://ec2-3-236-149-242.compute-1.amazonaws.com:8080/CalidadServApi-0.0.1-SNAPSHOT/materiaprima";
   }
 
   final Dio _dio;

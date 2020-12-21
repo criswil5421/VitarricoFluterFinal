@@ -20,7 +20,7 @@ class ListaProductoNombre extends StatelessWidget{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: Text("Lista proveedor"),),
+        title: Center(child: Text("Producto"),),
       ),
       body: _listFutureProducto(context),
       floatingActionButton: FloatingActionButton(
@@ -80,17 +80,31 @@ class ListaProductoNombre extends StatelessWidget{
 
   ListView _listProducto({BuildContext context, List<ModeloPro1>producto  }){
     return ListView.builder(
+
+
         itemCount: producto.length,
         itemBuilder: (BuildContext context, int index){
           return Card(
+
+
             child: Container(
+
+
+
               padding: EdgeInsets.all(10.0),
+
               child: ListTile(
+
                 leading: Text(producto[index].productoId.toString()),
                 title: Text(producto[index].productoNombre),
+                subtitle: Text(producto[index].productoDescripcion),
+                  trailing: Text(producto[index].productoCantidad),
+
 
 
               ),
+
+
             ),
           );
         }

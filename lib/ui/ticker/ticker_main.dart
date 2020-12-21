@@ -1,8 +1,4 @@
 
-
-
-
-
 import 'package:calidad_servicioupeu/blocs/productos/productos_bloc.dart';
 import 'package:calidad_servicioupeu/blocs/ticker/ticker_bloc.dart';
 import 'package:calidad_servicioupeu/modelo/productos_modelo.dart';
@@ -16,24 +12,26 @@ class TickerApp extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-      return MultiBlocProvider(
-          providers: [
-            BlocProvider(create: (_)=>TickerBloc(Ticker())),
-            BlocProvider(create: (_)=>ProductosBloc( productosRepository: ProductosRepository())),
-          ],
-          child: MaterialApp(
-            theme: ThemeData(primaryColor: Colors.amberAccent),
-            home: TickerPage(),
-          ));
+    return MultiBlocProvider(
+        providers: [
+          BlocProvider(create: (_)=>TickerBloc(Ticker())),
+          BlocProvider(create: (_)=>ProductosBloc( productosRepository: ProductosRepository())),
+        ],
+        child: MaterialApp(
+          theme: ThemeData(primaryColor: Colors.amberAccent),
+          home: TickerPage(),
+        ));
   }
-
 }
 
-
 class TickerPage extends StatelessWidget{
-final controllerNombre=new TextEditingController();
-final controllerPrecio=new TextEditingController();
-final GlobalKey<AnimatedFloatingActionButtonState> fabKey = GlobalKey();
+  final controllerNombre=new TextEditingController();
+  final controllerPrecio=new TextEditingController();
+  final controllerIngreso=new TextEditingController();
+  final controllerCantidad=new TextEditingController();
+  final controllerDescripcion=new TextEditingController();
+  final controllerAlmacen=new TextEditingController();
+  final GlobalKey<AnimatedFloatingActionButtonState> fabKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
     BlocProvider.of<ProductosBloc>(context).add(ListarProductosEvent());
@@ -42,33 +40,31 @@ final GlobalKey<AnimatedFloatingActionButtonState> fabKey = GlobalKey();
         title: BlocBuilder<TickerBloc, TickerState>(
           builder: (context, state){
             if(state is TickerTickSusccess){
-              return Center(
-                child: Text("Titulos Tick #${state.count}"),
-              );
+              print ("Productos Ingresantes");
             }
             return const Center(
-              child: Text(" Titulo (NA)"),
+              child: Text(" Productos Ingresantes "),
             );
           },
         ),
         actions: <Widget>[
           Padding(padding: EdgeInsets.only(right: 20.0),
-          child: GestureDetector(
-            onTap: (){
-              print("Si funciona");
-            },
-            child: Icon(Icons.search, size: 26.0,),
-          ),
+            child: GestureDetector(
+              onTap: (){
+                print("Si funciona");
+              },
+              child: Icon(Icons.search, size: 26.0,),
+            ),
           ),
           Padding(padding: EdgeInsets.only(right: 20.0),
-          child: GestureDetector(
-            onTap: (){
-              final producto=new ModeloProductos();
-              formDialog(context, producto);
-              print("Si funciona 2");
+            child: GestureDetector(
+              onTap: (){
+                final producto=new ModeloProductos();
+                formDialog(context, producto);
+                print("Si funciona 2");
               },
-            child: Icon(Icons.add_box_sharp),
-          ),
+              child: Icon(Icons.add_box_sharp),
+            ),
           )
         ],
       ),
@@ -80,58 +76,63 @@ final GlobalKey<AnimatedFloatingActionButtonState> fabKey = GlobalKey();
             );*/
 
             return ListView.builder(
-                itemCount: state.productosList.length,
-                itemBuilder: (context, index)=>
-                 Card(
-                  child: Container(
-                  padding: EdgeInsets.all(10.0),
-                    child: ListTile(
-                   leading: Text(state.productosList[index].id.toString()),
-                   title: Text(state.productosList[index].nombre),
-                      trailing: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          IconButton(icon: Icon(Icons.edit), onPressed: (){
-                          ModeloProductos productos=state.productosList[index];
-                          controllerNombre.text=productos.nombre;
-                          controllerPrecio.text=productos.precio.toString();
-                          formDialog(context, productos);
-                          }),
-                          IconButton(icon: Icon(Icons.delete), onPressed: (){
-                            showDialog(context: context,
-                            barrierDismissible: true,
-                              builder: (BuildContext context){
-                              return AlertDialog(
-                                title: Text("Mensaje de confirmacion"),
-                                content: Text("Desea Eliminar?"),
-                                actions: [
-                                  FlatButton(child: const Text('CANCEL'),
-                                    onPressed: (){
-                                    Navigator.of(context).pop('Failure');
-                                    },
-                                  ),
-                                  FlatButton( child: const Text('ACCEPT'),
-                                      onPressed: (){
-                                        Navigator.of(context).pop('Success');
-                                      })
-                                ],
-                              );
-                              }
-                            ).then((value){
-                              if(value.toString()=="Success"){
-                                BlocProvider.of<ProductosBloc>(context).add(DeleteProductoEvent(producto: state.productosList[index]));
-                              }
-                            });
+              itemCount: state.productosList.length,
+              itemBuilder: (context, index)=>
+                  Card(
+                    child: Container(
+                      padding: EdgeInsets.all(10.0),
+                      child: ListTile(
+                        leading: Text(state.productosList[index].productoId.toString()),
+                        title: Text(state.productosList[index].productoNombre),
+                        subtitle: Text(state.productosList[index].productoNombre),
+                        trailing: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            IconButton(icon: Icon(Icons.edit), onPressed: (){
+                              ModeloProductos productos=state.productosList[index];
+                              controllerNombre.text=productos.productoNombre;
+                              controllerPrecio.text=productos.productoPrecio.toString();
+                              controllerIngreso.text=productos.productoIngreso;
+                              controllerCantidad.text=productos.productoCantidad;
+                              controllerDescripcion.text=productos.productoDescripcion;
+                              controllerAlmacen.text=productos.almacenId.toString();
+                              formDialog(context, productos);
+                            }),
+                            IconButton(icon: Icon(Icons.delete), onPressed: (){
+                              showDialog(context: context,
+                                  barrierDismissible: true,
+                                  builder: (BuildContext context){
+                                    return AlertDialog(
+                                      title: Text("Mensaje de confirmacion"),
+                                      content: Text("Desea Eliminar?"),
+                                      actions: [
+                                        FlatButton(child: const Text('CANCEL'),
+                                          onPressed: (){
+                                            Navigator.of(context).pop('Failure');
+                                          },
+                                        ),
+                                        FlatButton( child: const Text('ACCEPT'),
+                                            onPressed: (){
+                                              Navigator.of(context).pop('Success');
+                                            })
+                                      ],
+                                    );
+                                  }
+                              ).then((value){
+                                if(value.toString()=="Success"){
+                                  BlocProvider.of<ProductosBloc>(context).add(DeleteProductoEvent(producto: state.productosList[index]));
+                                }
+                              });
 
 
 
 
-                          })
-                        ],
+                            })
+                          ],
+                        ),
                       ),
-                 ),
-                 ),
-                ),
+                    ),
+                  ),
             );
 
           }
@@ -160,8 +161,8 @@ final GlobalKey<AnimatedFloatingActionButtonState> fabKey = GlobalKey();
           image(),
           inbox()
         ],
-          colorStartAnimation: Colors.blue,
-          colorEndAnimation: Colors.red,
+        colorStartAnimation: Colors.blue,
+        colorEndAnimation: Colors.red,
         animatedIconData: AnimatedIcons.menu_close,
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterFloat,
@@ -207,52 +208,93 @@ final GlobalKey<AnimatedFloatingActionButtonState> fabKey = GlobalKey();
 
   Future formDialog(BuildContext context, ModeloProductos producto){
     return showDialog(context: context,
-    barrierDismissible: false,
-      builder: (BuildContext context){
-      return AlertDialog(
-        title: Text("Crear Producto"),
-        content: Column(
-          children: [
-            TextField(
-              obscureText: false,
-              controller: controllerNombre,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: "Nombre:",
-              ),
+        barrierDismissible: false,
+        builder: (BuildContext context){
+          return AlertDialog(
+            title: Text("Crear Producto"),
+            content: Column(
+              children: [
+                TextField(
+                  obscureText: false,
+                  controller: controllerNombre,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: "Nombre:",
+                  ),
+                ),
+                TextField(
+                  obscureText: false,
+                  controller: controllerPrecio,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: "Precio:",
+                  ),
+                ),
+                TextField(
+                  obscureText: false,
+                  controller: controllerIngreso,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: "Fecha de ingreso:",
+                  ),
+                ),
+                TextField(
+                  obscureText: false,
+                  controller: controllerCantidad,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: "Cantidad:",
+                  ),
+                ),
+                TextField(
+                  obscureText: false,
+                  controller: controllerDescripcion,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: "Descripcion:",
+                  ),
+                ),
+                TextField(
+                  obscureText: false,
+                  controller: controllerAlmacen,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: "Almacen:",
+                  ),
+                )
+              ],
             ),
-            TextField(
-              obscureText: false,
-              controller: controllerPrecio,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: "Precio:",
-              ),
-            )
-          ],
-        ),
-        actions: <Widget>[
-          FlatButton(child: Text('CANCEL'),
-              onPressed: (){
-            Navigator.of(context).pop('Cencel');
-              }),
-          FlatButton(child: Text('Guardar'),
-              onPressed: (){
-                producto.nombre=controllerNombre.value.text;
-                producto.precio=double.parse(controllerPrecio.value.text.toString());
-                controllerNombre.clear();
-                controllerPrecio.clear();
-                Navigator.of(context).pop(producto);
-              })
-        ],
-      );
-      }
+            actions: <Widget>[
+              FlatButton(child: Text('CANCEL'),
+                  onPressed: (){
+                    Navigator.of(context).pop('Cencel');
+                  }),
+              FlatButton(child: Text('Guardar'),
+                  onPressed: (){
+                    producto.productoNombre=controllerNombre.value.text;
+                    producto.productoPrecio=double.parse(controllerPrecio.value.text.toString());
+                    producto.productoIngreso=controllerIngreso.value.text;
+                    producto.productoCantidad=controllerCantidad.value.text;
+                    producto.productoDescripcion=controllerDescripcion.value.text;
+                    producto.almacenId=int.parse(controllerAlmacen.value.text.toString());
+                    controllerNombre.clear();
+                    controllerPrecio.clear();
+                    controllerIngreso.clear();
+                    controllerCantidad.clear();
+                    controllerDescripcion.clear();
+                    controllerAlmacen.clear();
+                    Navigator.of(context).pop(producto);
+                  })
+            ],
+          );
+        }
     ).then((value){
       if(value.toString()!="Cencel" && value.toString()!=null){
         ModeloProductos data=value;
-        print("VER: ${data.id}" );
-        if(data.id==null){
-          print("Datos: ${data.nombre}-${data.precio}");
+        print("VER: ${data.productoId}" );
+        if(data.productoId==null){
+          print("Datos: "
+              "${data.productoNombre}-${data.productoPrecio}-${data.productoIngreso}-${data.productoCantidad}-${data.productoDescripcion}-${data.almacenId}");
           BlocProvider.of<ProductosBloc>(context).add(CreateProductoEvent(producto: data));
         }else{
           BlocProvider.of<ProductosBloc>(context).add(UpdateProductoEvent(producto: data));

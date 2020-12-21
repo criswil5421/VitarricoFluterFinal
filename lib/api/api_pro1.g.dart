@@ -4,7 +4,7 @@ part of 'api_pro1.dart';
 class _Pro1Api implements Pro1Api{
   _Pro1Api(this._dio, {this.baseUrl}){
     ArgumentError.checkNotNull(_dio, '_dio');
-    this.baseUrl ??="http://60.60.60.36:8080";
+    this.baseUrl ??="http://ec2-3-236-149-242.compute-1.amazonaws.com:8080/CalidadServApi-0.0.1-SNAPSHOT";
   }
 
   final Dio _dio;

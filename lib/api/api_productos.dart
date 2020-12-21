@@ -12,7 +12,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 part 'api_productos.g.dart';
 
-@RestApi(baseUrl: "http://60.60.60.36:8080")
+@RestApi(baseUrl: "http://ec2-3-236-149-242.compute-1.amazonaws.com:8080/CalidadServApi-0.0.1-SNAPSHOT")
 abstract class ProductosApi{
   factory ProductosApi(Dio dio, {String baseUrl})=_ProductosApi;
 
