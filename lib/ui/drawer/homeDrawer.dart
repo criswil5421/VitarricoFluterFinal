@@ -126,7 +126,7 @@ class _HomeDrawerState extends State<HomeDrawer> {
                             child: ClipRRect(
                               borderRadius:
                                   BorderRadius.all(Radius.circular(60.0)),
-                              child: Image.asset("assets/images/logo_upeu.png"),
+                              child: Image.asset("assets/proyecto/logo.png"),
                             ),
                           ),
                         ),
