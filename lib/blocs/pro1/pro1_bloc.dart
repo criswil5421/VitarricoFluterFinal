@@ -36,7 +36,7 @@ class Pro1Bloc extends Bloc<Pro1Event, Pro1State> {
 
     } else if (event is DeletePro1Event) {
       try {
-        await _pro1Repository.deletePro1(event.pro1.idPro1);
+        await _pro1Repository.deletePro1(event.pro1.productoId);
         yield Pro1LoadingState();
         List<ModeloPro1> pro1List = await _pro1Repository.getPro1();
         yield Pro1LoadedState(pro1List);
@@ -57,7 +57,7 @@ class Pro1Bloc extends Bloc<Pro1Event, Pro1State> {
     } else if (event is UpdatePro1Event) {
       try {
         await _pro1Repository.updatePro1(
-            event.pro1.idPro1, event.pro1);
+            event.pro1.productoId, event.pro1);
         yield Pro1LoadingState();
         List<ModeloPro1> pro1List = await _pro1Repository.getPro1();
         yield Pro1LoadedState(pro1List);

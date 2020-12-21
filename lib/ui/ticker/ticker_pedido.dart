@@ -1,6 +1,7 @@
 import 'package:calidad_servicioupeu/blocs/pedido/pedido_bloc.dart';
 import 'package:calidad_servicioupeu/blocs/ticker/ticker_bloc.dart';
 import 'package:calidad_servicioupeu/modelo/pedido_modelo.dart';
+import 'package:calidad_servicioupeu/modelo/proveedor_modelo.dart';
 import 'package:calidad_servicioupeu/repository/PedidoRepository.dart';
 import 'package:calidad_servicioupeu/repository/ticker.dart';
 import 'package:flutter/cupertino.dart';
@@ -26,8 +27,8 @@ class PedidoApp extends StatelessWidget{
 
 
 class TickerPage extends StatelessWidget{
-  final controllerNombre=new TextEditingController();
-  final controllerPrecio=new TextEditingController();
+  final controllerFecha=new TextEditingController();
+  final controllerProveedor=new TextEditingController();
   final GlobalKey<AnimatedFloatingActionButtonState> fabKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
@@ -87,8 +88,10 @@ class TickerPage extends StatelessWidget{
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             IconButton(icon: Icon(Icons.edit), onPressed: (){
+                              //ModeloProveedor proveedor=state.proveedorList[index];
                               ModeloPedido pedido=state.pedidoList[index];
-                              controllerNombre.text=pedido.pedidoFecha;
+                              controllerFecha.text=pedido.pedidoFecha;
+                              controllerProveedor.text=pedido.proveedorId.toString();
                               formDialog(context, pedido);
                             }),
                             IconButton(icon: Icon(Icons.delete), onPressed: (){
@@ -209,7 +212,7 @@ class TickerPage extends StatelessWidget{
               children: [
                 TextField(
                   obscureText: false,
-                  controller: controllerNombre,
+                  controller: controllerFecha,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: "Nombre:",
@@ -217,10 +220,10 @@ class TickerPage extends StatelessWidget{
                 ),
                 TextField(
                   obscureText: false,
-                  controller: controllerPrecio,
+                  controller: controllerProveedor,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
-                    labelText: "Precio:",
+                    labelText: "Nombre:",
                   ),
                 )
               ],
@@ -232,8 +235,8 @@ class TickerPage extends StatelessWidget{
                   }),
               FlatButton(child: Text('Guardar'),
                   onPressed: (){
-                    pedido.pedidoFecha=controllerNombre.value.text;
-                    controllerNombre.clear();
+                    pedido.pedidoFecha=controllerFecha.value.text;
+                    controllerFecha.clear();
                     Navigator.of(context).pop(pedido);
                   })
             ],

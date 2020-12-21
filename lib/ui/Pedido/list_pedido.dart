@@ -76,7 +76,7 @@ class ListaPedido extends StatelessWidget{
               padding: EdgeInsets.all(10.0),
               child: ListTile(
                 leading: Text(pedido[index].pedidoId.toString()),
-                title: Text(': ${pedido[index].pedidoFecha}'),
+                title: Text((pedido[index].pedidoFecha)),
 
                 onTap: (){
                   print(pedido[index].pedidoFecha);

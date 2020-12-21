@@ -9,6 +9,7 @@ class PedidoLoadingState extends PedidoState{}
 class PedidoLoadedState extends PedidoState{
   List<ModeloPedido> pedidoList;
   PedidoLoadedState(this.pedidoList);
+
 }
 
 class PedidoError extends PedidoState{

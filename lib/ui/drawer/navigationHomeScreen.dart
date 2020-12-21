@@ -12,7 +12,9 @@ import 'package:calidad_servicioupeu/ui/theme/appTheme.dart';
 import 'package:calidad_servicioupeu/ui/drawer/drawerUserController.dart';
 import 'package:calidad_servicioupeu/ui/drawer/homeDrawer.dart';
 import 'package:calidad_servicioupeu/ui/ticker/ticker_main.dart';
+import 'package:calidad_servicioupeu/ui/ticker/ticker_pedido.dart';
 import 'package:calidad_servicioupeu/ui/ticker/ticker_periodo_main.dart';
+import 'package:calidad_servicioupeu/ui/ticker/ticker_proveedor.dart';
 
 import 'package:flutter/material.dart';
 
@@ -76,7 +78,7 @@ class _NavigationHomeScreenState extends State<NavigationHomeScreen> {
         });
       } else if (drawerIndex == DrawerIndex.Help) {
         setState(() {
-          screenView = MainPedido();
+          screenView = MainPro1();
         });
       } else if (drawerIndex == DrawerIndex.FeedBack) {
         setState(() {

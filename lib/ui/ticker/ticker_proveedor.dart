@@ -27,7 +27,10 @@ class ProveedorApp extends StatelessWidget{
 
 class TickerPage extends StatelessWidget{
   final controllerNombre=new TextEditingController();
-  final controllerPrecio=new TextEditingController();
+  final controllerDireccion=new TextEditingController();
+  final controllerCorreo=new TextEditingController();
+  final controllerTelefono=new TextEditingController();
+
   final GlobalKey<AnimatedFloatingActionButtonState> fabKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
@@ -89,7 +92,9 @@ class TickerPage extends StatelessWidget{
                             IconButton(icon: Icon(Icons.edit), onPressed: (){
                               ModeloProveedor proveedor=state.proveedorList[index];
                               controllerNombre.text=proveedor.proveedorNombre;
-                              controllerPrecio.text=proveedor.proveedorDireccion.toString();
+                              controllerDireccion.text=proveedor.proveedorDireccion;
+                              controllerCorreo.text=proveedor.proveedorCorreo;
+                              controllerTelefono.text=proveedor.proveedorTelefono;
                               formDialog(context, proveedor);
                             }),
                             IconButton(icon: Icon(Icons.delete), onPressed: (){
@@ -218,10 +223,26 @@ class TickerPage extends StatelessWidget{
                 ),
                 TextField(
                   obscureText: false,
-                  controller: controllerPrecio,
+                  controller: controllerDireccion,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
-                    labelText: "Precio:",
+                    labelText: "Direccion:",
+                  ),
+                ),
+                TextField(
+                  obscureText: false,
+                  controller: controllerCorreo,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: "Correo:",
+                  ),
+                ),
+                TextField(
+                  obscureText: false,
+                  controller: controllerTelefono,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: "Telefono:",
                   ),
                 )
               ],
@@ -234,7 +255,13 @@ class TickerPage extends StatelessWidget{
               FlatButton(child: Text('Guardar'),
                   onPressed: (){
                     proveedor.proveedorNombre=controllerNombre.value.text;
+                    proveedor.proveedorDireccion=controllerDireccion.value.text;
+                    proveedor.proveedorCorreo=controllerCorreo.value.text;
+                    proveedor.proveedorTelefono=controllerTelefono.value.text;
                     controllerNombre.clear();
+                    controllerDireccion.clear();
+                    controllerCorreo.clear();
+                    controllerTelefono.clear();
                   })
             ],
           );
@@ -244,7 +271,7 @@ class TickerPage extends StatelessWidget{
         ModeloProveedor data=value;
         print("VER: ${data.proveedorId}" );
         if(data.proveedorId==null){
-          print("Datos: ${data.proveedorNombre}-${data.proveedorDireccion}");
+          print("Datos: ${data.proveedorNombre}-${data.proveedorDireccion}-${data.proveedorCorreo}-${data.proveedorTelefono}");
           BlocProvider.of<ProveedorBloc>(context).add(CreateProveedorEvent(proveedor: data));
         }else{
           BlocProvider.of<ProveedorBloc>(context).add(UpdateProveedorEvent(proveedor: data));

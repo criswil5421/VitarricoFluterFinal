@@ -1,8 +1,11 @@
+import 'package:calidad_servicioupeu/modelo/proveedor_modelo.dart';
+
+
 class ModeloPedido{
 
   int pedidoId;
   String pedidoFecha  ;
-  int proveedorId;
+  ModeloProveedor proveedorId;
 
   ModeloPedido({
     this.pedidoId,
@@ -11,16 +14,18 @@ class ModeloPedido{
 
   Map<String, dynamic> toJson(){
     final  Map<String, dynamic> data= new Map<String, dynamic>();
+
+    data['proveedorId']=this.proveedorId.toJson();
     data['pedidoId']=this.pedidoId;
     data['pedidoFecha']=this.pedidoFecha;
-    data['proveedorId']=this.proveedorId;
     return data;
   }
 
   ModeloPedido.fromJson(Map<String, dynamic> json){
+
+    proveedorId=ModeloProveedor.fromJson(json['proveedorId']);
     pedidoId=json['pedidoId'];
     pedidoFecha=json['pedidoFecha'];
-    proveedorId=json['proveedorId'];
   }
 
 }
