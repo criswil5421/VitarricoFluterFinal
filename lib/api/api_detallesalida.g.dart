@@ -4,7 +4,7 @@ part of 'api_detallesalida.dart';
 class _DetallesalidaApi implements DetallesalidaApi{
   _DetallesalidaApi(this._dio,{this.baseUrl}){
     ArgumentError.checkNotNull(_dio, "_dio");
-    this.baseUrl ??="http://192.168.2.234:8080/detallesalida";
+    this.baseUrl ??="http://192.168.100.4:8080/detallesalida";
   }
 
   final Dio _dio;

@@ -14,7 +14,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 part 'api_detalleproduccion.g.dart';
 
-@RestApi(baseUrl: "http://192.168.2.234:8080/")
+@RestApi(baseUrl: "http://192.168.100.4:8080/")
 abstract class DetalleproduccionApi{
   factory DetalleproduccionApi(Dio dio, {String baseUrl})=_DetalleproduccionApi;
 

@@ -4,7 +4,7 @@ part of 'api_productos.dart';
 class _ProductosApi implements ProductosApi{
   _ProductosApi(this._dio, {this.baseUrl}){
     ArgumentError.checkNotNull(_dio, '_dio');
-    this.baseUrl ??="http://60.60.60.36:8080";
+    this.baseUrl ??="http://192.168.100.4:8080";
   }
 
   final Dio _dio;

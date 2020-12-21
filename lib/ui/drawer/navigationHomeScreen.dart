@@ -1,3 +1,4 @@
+import 'package:calidad_servicioupeu/ui/Pedido/main_pedido.dart';
 import 'package:calidad_servicioupeu/ui/Proveedor/main_proveedor.dart';
 import 'package:calidad_servicioupeu/ui/Proveedor/proveedor_main.dart';
 import 'package:calidad_servicioupeu/ui/drawer/Inicio.dart';
@@ -75,7 +76,7 @@ class _NavigationHomeScreenState extends State<NavigationHomeScreen> {
         });
       } else if (drawerIndex == DrawerIndex.Help) {
         setState(() {
-          screenView = materiaprimas();
+          screenView = MainPedido();
         });
       } else if (drawerIndex == DrawerIndex.FeedBack) {
         setState(() {
