@@ -12,7 +12,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 part 'api_productos.g.dart';
 
-@RestApi(baseUrl: "http://60.60.60.36:8080")
+@RestApi(baseUrl: "http://192.168.2.234:8080")
 abstract class ProductosApi{
   factory ProductosApi(Dio dio, {String baseUrl})=_ProductosApi;
 

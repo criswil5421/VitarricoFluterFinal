@@ -45,7 +45,7 @@ class TickerPage extends StatelessWidget{
               );
             }
             return const Center(
-              child: Text(" Titulo"),
+              child: Text(" Titulo lista detalle salida"),
             );
           },
         ),

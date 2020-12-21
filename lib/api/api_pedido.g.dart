@@ -4,7 +4,7 @@ part of 'api_pedido.dart';
 class _PedidoApi implements PedidoApi{
   _PedidoApi(this._dio, {this.baseUrl}){
     ArgumentError.checkNotNull(_dio, '_dio');
-    this.baseUrl ??="http://60.60.60.36:8080";
+    this.baseUrl ??="http://192.168.2.234:8080";
   }
 
   final Dio _dio;
@@ -19,7 +19,7 @@ class _PedidoApi implements PedidoApi{
     const _extra=<String, dynamic>{};
     final queryParameters= <String, dynamic>{};
     final _data=<String, dynamic>{};
-    final Response<List<dynamic>> _result= await _dio.request('/pedido/lista2',
+    final Response<List<dynamic>> _result= await _dio.request('/pedido/lista',
         queryParameters:queryParameters,
         options:RequestOptions(
             method:'GET',

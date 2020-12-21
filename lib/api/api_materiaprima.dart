@@ -13,7 +13,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 part 'api_materiaprima.g.dart';
 
-@RestApi(baseUrl: "http://192.168.2.234:8080/materiaprima")
+@RestApi(baseUrl: "http://192.168.2.234:8080/")
 abstract class MateriaprimaApi{
 
   factory MateriaprimaApi(Dio dio,{String baseUrl})= _MateriaprimaApi;

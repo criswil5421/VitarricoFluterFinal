@@ -22,8 +22,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter UI',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.deepPurple,
+      theme: ThemeData(primarySwatch: Colors.deepPurple,
         //primarySwatch: Colors.transparent,
         textTheme: AppTheme.textTheme,
         platform: TargetPlatform.iOS,

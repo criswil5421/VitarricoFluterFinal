@@ -42,7 +42,7 @@ class TickerPage extends StatelessWidget{
               );
             }
             return const Center(
-              child: Text(" Titulo (NA)"),
+              child: Text(" Titulo (proveedor)"),
             );
           },
         ),

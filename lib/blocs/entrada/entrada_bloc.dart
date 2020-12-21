@@ -30,7 +30,7 @@ class EntradaBloc extends Bloc<EntradaEvent, EntradaState> {
         List<ModeloEntrada>  entradaList = await _entradaRepository.getEntrada();
         yield EntradaLoadedState(entradaList);
       } catch (e) {
-        print("Error x ${e.toString()}");
+        print("Error xzzz ${e.toString()}");
         yield EntradaError(e);
       }
     } else if (event is DeleteEntradaEvent) {

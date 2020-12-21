@@ -28,8 +28,12 @@ class TickerMateriaPrimaApp extends StatelessWidget{
 
 
 class TickerPage extends StatelessWidget{
-  final controllerMateriaprima=new TextEditingController();
+  final controllerMateriaprimaId=new TextEditingController();
   final controllerMateriaCantidad=new TextEditingController();
+  final controllerMateriaIngreso=new TextEditingController();
+  final controllerMateriaNombre=new TextEditingController();
+  final controllerAlmacenId=new TextEditingController();
+
   final GlobalKey<AnimatedFloatingActionButtonState> fabKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
@@ -44,7 +48,7 @@ class TickerPage extends StatelessWidget{
               );
             }
             return const Center(
-              child: Text(" Titulo"),
+              child: Text(" Titulo lista materia prima"),
             );
           },
         ),
@@ -90,8 +94,11 @@ class TickerPage extends StatelessWidget{
                           children: [
                             IconButton(icon: Icon(Icons.edit), onPressed: (){
                               ModeloMateriaPrima materiaprima=state.materiaprimaList[index];
-                              controllerMateriaprima.text=materiaprima.materiaNombre;
-                              controllerMateriaCantidad.text=materiaprima.materiaCantidad.toString();
+                              controllerMateriaprimaId.text=materiaprima.materiaId.toString();
+                              controllerMateriaCantidad.text=materiaprima.materiaCantidad;
+                              controllerMateriaIngreso.text=materiaprima.materiaIngreso;
+                              controllerMateriaNombre.text=materiaprima.materiaNombre;
+                              controllerAlmacenId.text=materiaprima.almacenId.toString();
                               formDialog(context, materiaprima);
                             }),
                             IconButton(icon: Icon(Icons.delete), onPressed: (){
@@ -212,7 +219,7 @@ class TickerPage extends StatelessWidget{
               children: [
                 TextField(
                   obscureText: false,
-                  controller: controllerMateriaprima,
+                  controller: controllerMateriaprimaId,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: "Detalle produccion:",
@@ -236,10 +243,15 @@ class TickerPage extends StatelessWidget{
               FlatButton(child: Text('Guardar'),
                   onPressed: (){
 
-                    //materiaprima.materiaId=controllerMateriaprima.value.text;
-                    materiaprima.materiaNombre=controllerMateriaCantidad.value.text;
-                    controllerMateriaprima.clear();
-                    controllerMateriaprima.clear();
+                    //materiaprima.materiaId=controllerMateriaprimaId.value.text;
+                    materiaprima.materiaId=int.parse(controllerMateriaprimaId.value.text.toString());
+                    materiaprima.materiaCantidad=controllerMateriaCantidad.value.text;
+                    materiaprima.materiaIngreso=controllerMateriaIngreso.value.text;
+                    materiaprima.materiaNombre=controllerMateriaNombre.value.text;
+
+                    print('entrada: +++++++++++++++++++ ${int.parse(controllerMateriaprimaId.value.text.toString())}');
+
+                    //controllerMateriaprimaId.clear();
                     Navigator.of(context).pop(materiaprima);
                   })
             ],
@@ -248,7 +260,7 @@ class TickerPage extends StatelessWidget{
     ).then((value){
       if(value.toString()!="Cencel" && value.toString()!=null){
         ModeloMateriaPrima data=value;
-        print("VER: ${data.materiaId}" );
+        print("VER yyyy: ${data.materiaId}" );
         if(data.materiaCantidad==null){
           print("Datos: ${data.materiaId}-${data.materiaCantidad}");
           BlocProvider.of<MateriaprimaBloc>(context).add(CreateMateriaprimaEvent(materiaprima: data));

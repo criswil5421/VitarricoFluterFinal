@@ -11,7 +11,7 @@ class ModeloProveedor{
     this.proveedorNombre,
     this.proveedorDireccion,
     this.proveedorCorreo,
-  this.proveedorTelefono,
+    this.proveedorTelefono,
   });
 
   Map<String, dynamic> toJson(){

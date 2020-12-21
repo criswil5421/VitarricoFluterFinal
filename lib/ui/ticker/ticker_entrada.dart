@@ -73,7 +73,7 @@ class TickerPage extends StatelessWidget{
       ),
       body: BlocBuilder<EntradaBloc, EntradaState>(
         builder: (context, state){
-          print (' enter ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++');
+
           if(state is EntradaLoadedState){
             /*return Center(
               child: Text("Tick #${state.productosList.length}"),
