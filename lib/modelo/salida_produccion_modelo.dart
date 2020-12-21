@@ -1,27 +1,31 @@
 // TODO Implement this library.// TODO Implement this library.
+import 'package:calidad_servicioupeu/modelo/pro1_modelo.dart';
+
 class ModeloSalidaProduccion{
-  int salpro_id  ;
-  String salpro_fecha;
-  int producto_id;
+  int salproId  ;
+  String salproFecha;
+  ModeloPro1 productoId;
 
   ModeloSalidaProduccion({
-    this.salpro_id,
-    this.salpro_fecha,
-    this.producto_id,
+    this.salproId,
+    this.salproFecha,
+    this.productoId,
   });
 
   Map<String, dynamic> toJson(){
     final Map<String, dynamic> data=new Map<String, dynamic>();
-    data['salpro_id']=this.salpro_id;
-    data['salpro_fecha']=this.salpro_fecha;
-    data['producto_id']=this.producto_id;
+
+    data['productoId']=this.productoId.toJson();
+    data['salproId']=this.salproId;
+    data['salproFecha']=this.salproFecha;
     return data;
   }
 
   ModeloSalidaProduccion.fromJson(Map<String, dynamic> json){
-    salpro_id=json['salpro_id'];
-    salpro_fecha=json['salpro_fecha'];
-    producto_id=json['producto_id'];
+
+    productoId=ModeloPro1.fromJson(json['productoId']);
+    salproId=json['salproId'];
+    salproFecha=json['salproFecha'];
   }
 
 }

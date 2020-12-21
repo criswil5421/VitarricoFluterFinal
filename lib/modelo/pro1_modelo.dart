@@ -1,8 +1,6 @@
 import 'package:calidad_servicioupeu/modelo/almacen_modelo.dart';
 
 class ModeloPro1{
-
-
   int productoId;
   String productoNombre;
   double productoPrecio;

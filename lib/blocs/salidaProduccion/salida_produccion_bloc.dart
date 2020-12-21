@@ -32,7 +32,7 @@ class SalidaProduccionBloc extends Bloc<SalidaProduccionEvent, SalidaProduccionS
 
     }else if(event is DeleteSalidaProduccionEvent){
       try{
-        await _salidaproduccionRepository.deleteSalidaProduccion(event.salidaproduccion.salpro_id);
+        await _salidaproduccionRepository.deleteSalidaProduccion(event.salidaproduccion.salproId);
         yield SalidaProduccionLoadingState();
         List<ModeloSalidaProduccion> salidaproduccionList= await _salidaproduccionRepository.getSalidaProduccion();
         yield SalidaProduccionLoadedState(salidaproduccionList);
@@ -52,7 +52,7 @@ class SalidaProduccionBloc extends Bloc<SalidaProduccionEvent, SalidaProduccionS
       }
     }else if(event is UpdateSalidaProduccionEvent){
       try{
-        await _salidaproduccionRepository.updateSalidaProduccion(event.salidaproduccion.salpro_id, event.salidaproduccion);
+        await _salidaproduccionRepository.updateSalidaProduccion(event.salidaproduccion.salproId, event.salidaproduccion);
         yield SalidaProduccionLoadingState();
         List<ModeloSalidaProduccion> salidaproduccionList= await _salidaproduccionRepository.getSalidaProduccion();
         yield SalidaProduccionLoadedState(salidaproduccionList);

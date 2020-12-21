@@ -8,6 +8,7 @@ import 'package:calidad_servicioupeu/ui/listaperiodo/main_periodo.dart';
 import 'package:calidad_servicioupeu/ui/paginas/MateriasPrimas.dart';
 import 'package:calidad_servicioupeu/ui/paginas/ProductosTerminados.dart';
 import 'package:calidad_servicioupeu/ui/pro1/main_pro1.dart';
+import 'package:calidad_servicioupeu/ui/salidaproduccion/salidaproduccion_main.dart';
 import 'package:calidad_servicioupeu/ui/theme/appTheme.dart';
 import 'package:calidad_servicioupeu/ui/drawer/drawerUserController.dart';
 import 'package:calidad_servicioupeu/ui/drawer/homeDrawer.dart';
@@ -15,6 +16,7 @@ import 'package:calidad_servicioupeu/ui/ticker/ticker_main.dart';
 import 'package:calidad_servicioupeu/ui/ticker/ticker_pedido.dart';
 import 'package:calidad_servicioupeu/ui/ticker/ticker_periodo_main.dart';
 import 'package:calidad_servicioupeu/ui/ticker/ticker_proveedor.dart';
+import 'package:calidad_servicioupeu/ui/ticker/ticker_salida_produccion.dart';
 
 import 'package:flutter/material.dart';
 
@@ -78,7 +80,7 @@ class _NavigationHomeScreenState extends State<NavigationHomeScreen> {
         });
       } else if (drawerIndex == DrawerIndex.Help) {
         setState(() {
-          screenView = MainPro1();
+          screenView = SalidaProduccionMain();
         });
       } else if (drawerIndex == DrawerIndex.FeedBack) {
         setState(() {
