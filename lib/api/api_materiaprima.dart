@@ -13,7 +13,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 part 'api_materiaprima.g.dart';
 
-@RestApi(baseUrl: "http://192.168.2.234:8080/materiaprima")
+@RestApi(baseUrl: "http://60.60.60.36:8080")
 abstract class MateriaprimaApi{
 
   factory MateriaprimaApi(Dio dio,{String baseUrl})= _MateriaprimaApi;
@@ -23,10 +23,10 @@ abstract class MateriaprimaApi{
     dio.interceptors.add(PrettyDioLogger());
     return MateriaprimaApi(dio);
   }
-  @GET("/lista")
+  @GET("/materiaprima/lista")
   Future<List<ModeloMateriaPrima>> getMateriaprima();
 
-  @GET("/lista2")
+  @GET("/materiaprima/lista2")
   Future<List<ModeloMateriaPrima>>   getMateriaprima2(@Header("Authorization") String token);
 
   @POST("/auth/login")
@@ -34,6 +34,10 @@ abstract class MateriaprimaApi{
 
   @GET("/materiaprima/detail/{id}")
   Future<ModeloMateriaPrima> getMateriaprimaId(@Path("id") String id);
+
+  @GET("/materiaprima/detailname/{nombre}")
+  Future<List<ModeloMateriaPrima>> getMateriaNombre(@Path("nombre") String materiaNombre);
+
 
   @DELETE("/materiaprima/delete/{id}")
   Future<ModeloMensaje> deleteMateriaprima(@Path("id") int id);

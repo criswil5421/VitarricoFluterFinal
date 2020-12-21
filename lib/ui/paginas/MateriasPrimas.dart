@@ -1,5 +1,6 @@
 
 
+import 'package:calidad_servicioupeu/ui/paginas/materias%20primas/materiasprimas.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -14,6 +15,11 @@ class materiaprimas extends StatelessWidget{
       home: Container(child: materia()),
 
 
+      routes: {
+
+        '/materiapri': (context) => materiapri(),
+      },
+
     );
   }
 }
@@ -24,6 +30,7 @@ class materia extends StatelessWidget{
     return Scaffold(
         appBar: AppBar(
           title: Center(child: Text("materias primaas"),),
+
         ),
       body: Container(
 
@@ -107,9 +114,11 @@ class materia extends StatelessWidget{
                       ),
 
                       child: Text('Harina'),
-                      /*onPressed: (){
-                          Navigator.of(context).pushNamed('/materia');
-                        }*/
+
+                      onPressed: (){
+                         Navigator.of(context).pushNamed('/materiapri', arguments: {'myData': 'harina'});
+
+                        }
                     ),
                   ),
                   new Container(
@@ -136,9 +145,9 @@ class materia extends StatelessWidget{
                       ),
 
                       child: Text('Leche'),
-                      /*onPressed: (){
-                          Navigator.of(context).pushNamed('/materia');
-                        }*/
+                      onPressed: (){
+                        Navigator.of(context).pushNamed('/materiapri', arguments: {'myData': 'leche'});
+                        }
                     ),
                   ),
                   new Container(
@@ -165,9 +174,9 @@ class materia extends StatelessWidget{
                       ),
 
                       child: Text('Vainilla'),
-                      /*onPressed: (){
-                          Navigator.of(context).pushNamed('/materia');
-                        }*/
+                      onPressed: (){
+                          Navigator.of(context).pushNamed('/materiapri', arguments: {'myData': 'Vainilla'});
+                        }
                     ),
                   ),
                 ],
@@ -234,9 +243,9 @@ class materia extends StatelessWidget{
                       ),
 
                       child: Text('Aceite'),
-                      /*onPressed: (){
-                          Navigator.of(context).pushNamed('/materia');
-                        }*/
+                      onPressed: (){
+                          Navigator.of(context).pushNamed('/materiapri', arguments: {'myData': 'Aceite'});
+                        }
                     ),
                   ),
                   new Container(
@@ -263,9 +272,9 @@ class materia extends StatelessWidget{
                       ),
 
                       child: Text('Escencia'),
-                      /*onPressed: (){
-                          Navigator.of(context).pushNamed('/materia');
-                        }*/
+                      onPressed: (){
+                          Navigator.of(context).pushNamed('/materiapri', arguments: {'myData': 'Escencia'});
+                        }
                     ),
                   ),
                   new Container(
@@ -292,9 +301,9 @@ class materia extends StatelessWidget{
                       ),
 
                       child: Text('Azucar'),
-                      /*onPressed: (){
-                          Navigator.of(context).pushNamed('/materia');
-                        }*/
+                      onPressed: (){
+                          Navigator.of(context).pushNamed('/materiapri', arguments: {'myData': 'Azucar'});
+                        }
                     ),
                   ),
                 ],

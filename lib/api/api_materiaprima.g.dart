@@ -4,7 +4,7 @@ part of 'api_materiaprima.dart';
 class _MateriaprimaApi implements MateriaprimaApi{
   _MateriaprimaApi(this._dio,{this.baseUrl}){
     ArgumentError.checkNotNull(_dio, "_dio");
-    this.baseUrl ??="http://192.168.2.234:8080/materiaprima";
+    this.baseUrl ??="http://60.60.60.36:8080/materiaprima";
   }
 
   final Dio _dio;
@@ -59,6 +59,31 @@ class _MateriaprimaApi implements MateriaprimaApi{
 
     return Future.value(value);
   }
+
+  @override
+  getMateriaNombre(materiaNombre) async{
+    ArgumentError.checkNotNull(materiaNombre, 'nombre');
+    final prefs= await SharedPreferences.getInstance();
+    var tokenx=prefs.getString("token");
+    print("VER: ${tokenx}");
+    ArgumentError.checkNotNull(tokenx, "token");
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final Response<List<dynamic>> _result = await _dio.request(
+        '/detailname/$materiaNombre',
+        queryParameters: queryParameters,
+        options: RequestOptions(
+            method: 'GET',
+            headers: <String, dynamic>{"Authorization":tokenx},
+            extra: _extra,
+            baseUrl: baseUrl),
+        data: _data);
+    var value = _result.data
+        .map((dynamic i)=>ModeloMateriaPrima.fromJson(i as Map<String, dynamic>)).toList();
+    return Future.value(value);
+  }
+
 
   noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
 }

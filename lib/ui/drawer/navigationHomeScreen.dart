@@ -2,6 +2,7 @@ import 'package:calidad_servicioupeu/ui/Proveedor/main_proveedor.dart';
 import 'package:calidad_servicioupeu/ui/Proveedor/proveedor_main.dart';
 import 'package:calidad_servicioupeu/ui/drawer/Inicio.dart';
 import 'package:calidad_servicioupeu/ui/listaestado/view_streams.dart';
+import 'package:calidad_servicioupeu/ui/listamateriaprima/main_materiaprima.dart';
 import 'package:calidad_servicioupeu/ui/listaproducto/main_productos.dart';
 import 'package:calidad_servicioupeu/ui/listaperiodo/main_periodo.dart';
 import 'package:calidad_servicioupeu/ui/paginas/MateriasPrimas.dart';
@@ -83,7 +84,7 @@ class _NavigationHomeScreenState extends State<NavigationHomeScreen> {
         });
       } else if (drawerIndex == DrawerIndex.Invite) {
         setState(() {
-          screenView =   MainProveedor();                 //MainPeriodo();
+          screenView =   MainMateriaPrima();                 //MainPeriodo();
         });
       } else {
         //do in your way......
